@@ -6,7 +6,7 @@
 /*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:51:05 by prachman          #+#    #+#             */
-/*   Updated: 2023/05/20 14:01:02 by prachman         ###   ########.fr       */
+/*   Updated: 2023/05/23 20:52:02 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ int    check_digit(char **av)
     return (0);
 }
 
+long int get_time()
+{
+    struct timeval tv;
+    
+    if (gettimeofday(&tv, NULL) != 0) //? correct way to do this?
+        return (0); //!out
+    return (tv.tv_sec * 1000000 + tv.tv_usec);
+}
+
 int create_time(char **av, t_time *p_time)
 {
     int i;
@@ -54,6 +63,6 @@ int create_time(char **av, t_time *p_time)
     if (gettimeofday(&tv, NULL)== 0) //? correct way to do this?
         p_time->start = tv.tv_sec * 1000000 + tv.tv_usec;
     else
-        return (1);
+        return (1); //!out
     return (0);
 }
