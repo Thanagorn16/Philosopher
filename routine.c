@@ -43,6 +43,7 @@ int check_death(t_philo *philo)
 int take_fork(pthread_mutex_t *mutex, t_philo *philo, int *fork, int mode)
 {
     // printf("fork:%d\n", *(fork));
+    // printf("philo: %d | fork_mode:%d\n",philo->philo_id, *(fork));
     while (check_death(philo) == 0)
     {
         pthread_mutex_lock(mutex);

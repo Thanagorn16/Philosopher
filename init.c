@@ -6,7 +6,7 @@
 /*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:43 by prachman          #+#    #+#             */
-/*   Updated: 2023/05/31 16:21:28 by prachman         ###   ########.fr       */
+/*   Updated: 2023/05/31 22:10:53 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void    init_philo(int size, t_var *var, t_time time)
     i = 0;
     while (i < size)
     {
+        // printf("i:%d\n", i);
         var->philo[i].philo_id = i + 1;
         var->philo[i].meal = 0;
         var->philo[i].is_alive = 1;
@@ -80,9 +81,19 @@ void    init_philo(int size, t_var *var, t_time time)
         var->philo[i].mutex_l = &var->mutex[i];
         var->philo[i].fork_l = &var->fork[i];
         // printf("philo[%d] with lef_fork:%d and mode:%d\n", var->philo[i].philo_id, i, var->fork[i]);
-        var->philo[i].mutex_r = &var->mutex[size - (i + 1)];
-        var->philo[i].fork_r = &var->fork[size - (i + 1)];
-        // printf("philo[%d] with right_fork:%d and mode:%d\n", var->philo[i].philo_id, size - (i+1), var->fork[size - (i + 1)]);
+        if (i == 0)
+        {
+            var->philo[i].mutex_r = &var->mutex[size - (i + 1)];
+            var->philo[i].fork_r = &var->fork[size - (i + 1)];
+            // printf("philo[%d] with right_fork:%d and mode:%d\n", var->philo[i].philo_id, size - (i+1), var->fork[size - (i + 1)]);
+        }
+        else
+        {
+            // printf("in else\n");
+            var->philo[i].mutex_r = &var->mutex[i - 1];
+            var->philo[i].fork_r = &var->fork[i - 1];
+            // printf("philo[%d] with right_fork:%d and mode:%d\n", var->philo[i].philo_id, i - 1, var->fork[i - 1]);
+        }
         i++;
     }
     // exit(0);
