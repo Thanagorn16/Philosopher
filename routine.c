@@ -81,6 +81,12 @@ int is_eating(t_philo *philo)
     *(philo->fork_r) = 1;
     pthread_mutex_unlock(philo->mutex_l);
     pthread_mutex_unlock(philo->mutex_r);
+    if (philo->time.max_meal > 0)
+    {
+        philo->meal++;
+        if (philo->meal == philo->time.max_meal)
+            return (-1);
+    }
     return (0);
 }
 

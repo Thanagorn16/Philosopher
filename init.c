@@ -6,7 +6,7 @@
 /*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:43 by prachman          #+#    #+#             */
-/*   Updated: 2023/05/31 22:10:53 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:27:06 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ int init_time(char **av, t_time *p_time)
         if (i == 4)
             p_time->sleep =  ft_atoi(av[4]) * 1000;
         if (i == 5)
-            p_time->max_meal =  ft_atoi(av[5]) * 1000;
+            p_time->max_meal =  ft_atoi(av[5]);
+        else
+            p_time->max_meal = 0;
         i++;   
     }
-    if (gettimeofday(&tv, NULL)== 0) //? correct way to do this?
+    if (gettimeofday(&tv, NULL)== 0)
         p_time->start = tv.tv_sec * 1000000 + tv.tv_usec;
     else
         return (1); //!out
