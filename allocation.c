@@ -6,7 +6,7 @@
 /*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:18:22 by prachman          #+#    #+#             */
-/*   Updated: 2023/05/31 16:19:05 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:25:45 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,9 @@ int allocate(int size, t_var *var)
     var->fork = (int *)malloc(sizeof(int) * size);
     if (!var->fork)
         return (0);
+    var->is_alive = (t_alive *)malloc(sizeof(t_alive));
+    if (!var->is_alive)
+        return (0);
+    var->is_alive->is_dead = 1;
     return (1);
 }

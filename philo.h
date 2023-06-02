@@ -6,7 +6,7 @@
 /*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:49:58 by prachman          #+#    #+#             */
-/*   Updated: 2023/05/31 22:18:25 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:25:21 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-# define FORK "\033[0;33m[%lu ms] philo %d is holding a fork\n" 
-# define EAT "\033[0;32m[%lu ms] philo %d is eating\n"
-# define SLEEP "\033[0;37m[%lu ms] philo %d is sleeping\n"
-# define THINK "\033[0;34m[%lu ms] philo %d is thinking\n"
-# define DEAD "\033[0;31m[%lu ms] philo %d is dead\n"
+# define FORK "\033[1;33m[%lu ms] philo %d is holding a fork\033[0m\n" 
+# define EAT "\033[1;32m[%lu ms] philo %d is eating\033[0m\n"
+# define SLEEP "\033[1;34m[%lu ms] philo %d is sleeping\033[0m\n"
+# define THINK "\033[1;38;5;208m[%lu ms] philo %d is thinking\033[0m\n"
+# define DEAD "\033[1;31m[%lu ms] philo %d is dead\033[0m\n"
 
 typedef struct s_time 
 {
@@ -34,12 +34,17 @@ typedef struct s_time
 	long int max_meal;
 }   t_time;
 
+typedef struct s_alive
+{
+	int	is_dead;
+}	t_alive;
+
 typedef struct s_philo
 {
 	int             philo_id;
 	int             philo_sz;
 	int             meal;
-	int				is_alive;
+	// int				is_alive;
 	long int        hp;
 	long int        rec;
 	pthread_mutex_t *lock;
@@ -48,12 +53,15 @@ typedef struct s_philo
 	int             *fork_l;
 	int             *fork_r;
 	t_time          time;
+	t_alive			*is_alive;
 }   t_philo;
 
 typedef struct s_var
 {
 	int             	*fork;
+	// int             	*is_alive;
 	t_philo         	*philo;
+	t_alive         	*is_alive;
 	pthread_t       	*th;
 	pthread_mutex_t 	*lock;
 	pthread_mutex_t		*mutex;

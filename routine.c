@@ -25,12 +25,14 @@ int check_death(t_philo *philo)
         // printf("index:  %d\n", philo->philo_id);
         // printf("hp:     %ld\n", philo->hp);
         // printf("time:   %ld\n", get_time());
-        if (philo->is_alive == 0) //! kickout dead philo
+
+        if (philo->is_alive->is_dead == 0) //! kickout dead philo
         {
             pthread_mutex_unlock(philo->lock);
             return (-1);
         }
-        philo->is_alive = 0;
+
+        philo->is_alive->is_dead = 0;
         pthread_mutex_unlock(philo->lock);
         print_log(DEAD, philo);
         return (-1);

@@ -6,7 +6,7 @@
 /*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:43 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/01 16:27:06 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:26:39 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ void    init_philo(int size, t_var *var, t_time time)
         // printf("i:%d\n", i);
         var->philo[i].philo_id = i + 1;
         var->philo[i].meal = 0;
-        var->philo[i].is_alive = 1;
+        // var->philo[i].is_alive = 1;
+        // printf("11111111111\n");
+        var->philo[i].is_alive = var->is_alive;
+        // printf("222222\n");
         var->philo[i].time = time;
         var->philo[i].lock = &var->lock[i];
         var->philo[i].mutex_l = &var->mutex[i];
