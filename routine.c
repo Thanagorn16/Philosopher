@@ -14,16 +14,16 @@
 
 int check_death(t_philo *philo)
 {
-	// pthread_mutex_lock(philo->lock);
 	// printf("index out:  %d\n", philo->philo_id);
 	// printf("hp out:     %ld\n", philo->hp);
 	// printf("time out:   %ld\n", get_time());
-	// pthread_mutex_unlock(philo->lock);
+	pthread_mutex_lock(philo->lock);
 	if (philo->is_alive->is_dead == 0) //! check if there's dead philo
 	{
 		pthread_mutex_unlock(philo->lock);
 		return (-1);
 	}
+	pthread_mutex_unlock(philo->lock);
 	if (philo->hp < get_time())
 	{
 		pthread_mutex_lock(philo->lock);
@@ -38,8 +38,10 @@ int check_death(t_philo *philo)
 		// }
 
 		philo->is_alive->is_dead = 0;
+		philo->rec = get_time();
+		printf(DEAD, (philo->rec - philo->time.start) / 1000, philo->philo_id); //considering change status to DEATH
 		pthread_mutex_unlock(philo->lock);
-		print_log(DEAD, philo);
+		// print_log(DEAD, philo);
 		return (-1);
 		// if (print_log(DEAD, philo) < 0)
 		//     return (-1);
@@ -124,11 +126,14 @@ void    *routine(void *arg)
 	while (check_death(philo) == 0)
 	{
 		if (take_fork(philo->mutex_l, philo, philo->fork_l, 1) < 0)
+		{
+			// printf("11111111\n");
 			break ;
+		}
 		// printf("DONE TAKE LEFT FORK\n");
 		if (take_fork(philo->mutex_r, philo, philo->fork_r, 0) < 0)
 		{
-			// printf("111111111\n");
+			// printf("222222\n");
 			break ;
 		}
 		// printf("DONE TAKE RIGHT FORK\n");

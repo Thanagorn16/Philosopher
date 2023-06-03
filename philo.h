@@ -6,7 +6,7 @@
 /*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:49:58 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 12:11:12 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/03 13:09:46 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_var
 	pthread_mutex_t		*mutex;
 }   t_var;
 
-void		freeAll(t_var *var, int size);
+void		free_all(t_var *var, int size);
 void		*routine(void *arg);
 int			allocate(int size, t_var *var);
 int			allocate_mutex(int size, t_var *var);
