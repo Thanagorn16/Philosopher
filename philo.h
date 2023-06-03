@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:49:58 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 00:25:21 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/03 12:11:12 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-# define FORK "\033[1;33m[%lu ms] philo %d is holding a fork\033[0m\n" 
+# define FORK "\033[1;33m[%lu ms] philo %d is holding a fork\033[0m\n"
 # define EAT "\033[1;32m[%lu ms] philo %d is eating\033[0m\n"
 # define SLEEP "\033[1;34m[%lu ms] philo %d is sleeping\033[0m\n"
 # define THINK "\033[1;38;5;208m[%lu ms] philo %d is thinking\033[0m\n"
 # define DEAD "\033[1;31m[%lu ms] philo %d is dead\033[0m\n"
 
-typedef struct s_time 
+typedef struct s_time
 {
 	long int start;
 	long int die;
@@ -41,39 +41,38 @@ typedef struct s_alive
 
 typedef struct s_philo
 {
-	int             philo_id;
-	int             philo_sz;
-	int             meal;
+	int				philo_id;
+	int				meal;
 	// int				is_alive;
-	long int        hp;
-	long int        rec;
-	pthread_mutex_t *lock;
+	long int		hp;
+	long int		rec;
+	pthread_mutex_t	*lock;
 	pthread_mutex_t	*mutex_l;
-	pthread_mutex_t *mutex_r;
-	int             *fork_l;
-	int             *fork_r;
-	t_time          time;
+	pthread_mutex_t	*mutex_r;
+	int				*fork_l;
+	int				*fork_r;
+	t_time			time;
 	t_alive			*is_alive;
 }   t_philo;
 
 typedef struct s_var
 {
-	int             	*fork;
+	int					*fork;
 	// int             	*is_alive;
-	t_philo         	*philo;
-	t_alive         	*is_alive;
-	pthread_t       	*th;
-	pthread_mutex_t 	*lock;
+	t_philo				*philo;
+	t_alive				*is_alive;
+	pthread_t			*th;
+	pthread_mutex_t		*lock;
 	pthread_mutex_t		*mutex;
 }   t_var;
 
-void    	freeAll(t_var *var, int size);
-void    	*routine(void *arg);
-int 		allocate(int size, t_var *var);
-int 		allocate_mutex(int size, t_var *var);
-int 		init_time(char **av, t_time *p_time);
-void    	init_fork(int size, t_var *var);
-void    	init_philo(int size, t_var *var, t_time time);
+void		freeAll(t_var *var, int size);
+void		*routine(void *arg);
+int			allocate(int size, t_var *var);
+int			allocate_mutex(int size, t_var *var);
+int			init_time(char **av, int ac, t_time *p_time);
+void		init_fork(int size, t_var *var);
+void		init_philo(int size, t_var *var, t_time time);
 int			print_log(char *status, t_philo *philo);
 int			ft_atoi(const char *str);
 int			check_digit(char **av);
