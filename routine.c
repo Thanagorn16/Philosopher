@@ -121,6 +121,8 @@ void    *routine(void *arg)
 
 	philo = (t_philo *)arg;
 	philo->hp = philo->time.start + philo->time.die;
+	// printf("%ld\n", philo->time.start);
+	// return (NULL);
 	// printf("%ld\n", philo->hp);
 	// printf("philo: %d entered routine\n", philo->philo_id);
 	while (check_death(philo) == 0)

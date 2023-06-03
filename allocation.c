@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   allocation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:18:22 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 12:08:37 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:45:22 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ int allocate_mutex(int size, t_var *var)
 		i++;
 	}
 	i = 0;
-	var->lock = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * size);
+	var->lock = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
 	if (!var->lock)
 		return (-1);
-	while (i < size) //init mutex
-	{
-		pthread_mutex_init(&var->lock[i], NULL);
-		i++;
-	}
+	pthread_mutex_init(var->lock, NULL);
+	// while (i < size) //init mutex
+	// {
+	// 	pthread_mutex_init(&var->lock[i], NULL);
+	// 	i++;
+	// }
 	return (0);
 }
 

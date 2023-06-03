@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:43 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 11:36:09 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:44:25 by prachman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void    init_philo(int size, t_var *var, t_time time)
 		var->philo[i].is_alive = var->is_alive;
 		// printf("222222\n");
 		var->philo[i].time = time;
-		var->philo[i].lock = &var->lock[i];
+		var->philo[i].lock = var->lock;
 		var->philo[i].mutex_l = &var->mutex[i];
 		var->philo[i].fork_l = &var->fork[i];
 		// printf("philo[%d] with lef_fork:%d and mode:%d\n", var->philo[i].philo_id, i, var->fork[i]);
