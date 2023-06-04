@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:43 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 20:44:25 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/04 11:30:20 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int init_time(char **av, int ac, t_time *p_time)
 {
-	int i;
 	struct timeval tv;
 
 	p_time->die = ft_atoi(av[2]) * 1000;

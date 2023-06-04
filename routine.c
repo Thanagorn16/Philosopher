@@ -117,7 +117,6 @@ int is_sleeping(t_philo *philo)
 void    *routine(void *arg)
 {
 	t_philo     *philo;
-	long int    start_eat;
 
 	philo = (t_philo *)arg;
 	philo->hp = philo->time.start + philo->time.die;
