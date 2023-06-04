@@ -6,7 +6,7 @@
 /*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:50:03 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/04 12:32:01 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/04 13:08:11 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	create_thread(int size, t_var *var)
 	return (0);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int		size;
 	t_time	p_time;

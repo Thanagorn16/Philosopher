@@ -6,7 +6,7 @@
 /*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 14:35:47 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/04 12:26:22 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/04 13:15:42 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_all(t_var *var, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	free(var->philo);
@@ -34,7 +34,8 @@ int	print_log(char *status, t_philo *philo)
 	if (philo->is_alive->is_dead > 0)
 	{
 		philo->rec = get_time();
-		printf(status, (philo->rec - philo->time.start) / 1000, philo->philo_id);
+		printf(status,
+			(philo->rec - philo->time.start) / 1000, philo->philo_id);
 		pthread_mutex_unlock(philo->lock);
 		return (0);
 	}

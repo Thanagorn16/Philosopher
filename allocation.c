@@ -6,15 +6,15 @@
 /*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:18:22 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/04 12:30:31 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/04 13:13:46 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int allocate_mutex(int size, t_var *var)
+int	allocate_mutex(int size, t_var *var)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	var->mutex = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * size);
@@ -33,7 +33,7 @@ int allocate_mutex(int size, t_var *var)
 	return (0);
 }
 
-int allocate(int size, t_var *var)
+int	allocate(int size, t_var *var)
 {
 	var->philo = (t_philo *)malloc(sizeof(t_philo) * size);
 	if (!var->philo)
@@ -50,7 +50,5 @@ int allocate(int size, t_var *var)
 	if (!var->is_alive)
 		return (EXIT);
 	var->is_alive->is_dead = 1;
-	printf("all allocated\n");
-	// free_all(var, size);
 	return (0);
 }
