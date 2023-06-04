@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: prachman <prachman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:49:58 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 20:25:19 by prachman         ###   ########.fr       */
+/*   Updated: 2023/06/04 11:39:22 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # define SLEEP "\033[1;34m[%lu ms] philo %d is sleeping\033[0m\n"
 # define THINK "\033[1;38;5;208m[%lu ms] philo %d is thinking\033[0m\n"
 # define DEAD "\033[1;31m[%lu ms] philo %d is dead\033[0m\n"
+
+# define EXIT -1
 
 typedef struct s_time
 {

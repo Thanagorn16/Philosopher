@@ -6,7 +6,7 @@
 /*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:19:43 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/04 11:30:20 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/04 11:48:18 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int init_time(char **av, int ac, t_time *p_time)
 	if (gettimeofday(&tv, NULL)== 0)
 		p_time->start = tv.tv_sec * 1000000 + tv.tv_usec;
 	else
-		return (1); //!out
+		return (EXIT);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: truangsi <truangsi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:51:05 by prachman          #+#    #+#             */
-/*   Updated: 2023/06/03 15:23:46 by truangsi         ###   ########.fr       */
+/*   Updated: 2023/06/04 11:40:05 by truangsi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int	check_digit(char **av)
 	{
 		j = 0;
 		if (ft_strlen(av[i]) == 0)
-			return (-1);
+			return (EXIT);
 		while (av[i][j] != '\0')
 		{
 			if (av[i][j] < '0' || av[i][j] > '9')
-				return (-1);
+				return (EXIT);
 			j++;
 		}
 		i++;
@@ -48,7 +48,6 @@ long int get_time()
 {
 	struct timeval tv;
 
-	if (gettimeofday(&tv, NULL) != 0)
-		return (0); //!out
+	gettimeofday(&tv, NULL);
 	return (tv.tv_sec * 1000000 + tv.tv_usec);
 }
