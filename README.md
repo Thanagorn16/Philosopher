@@ -52,7 +52,6 @@ The project explores different techniques to safely and efficiently manage these
 - [🔧 Installation](#-installation)  
 - [🚀 Usage](#-usage)  
 - [🎮 Simulation Options](#-simulation-options)  
-- [📄 License](#-license)
 
 ---
 
