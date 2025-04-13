@@ -45,14 +45,14 @@ The project explores different techniques to safely and efficiently manage these
 
 ## 📁 Table of Contents
 
-- [📌 Project Description](#project-description)  
-- [✨ Features](#features)  
-- [⚙️ Technologies Used](#technologies-used)  
-- [🚧 Challenges Faced](#challenges-faced)  
-- [🔧 Installation](#installation)  
-- [🚀 Usage](#usage)  
-- [🎮 Simulation Options](#simulation-options)  
-- [📄 License](#license)
+- [📌 Project Description](#-project-description)  
+- [✨ Features](#-features)  
+- [⚙️ Technologies Used](#-technologies-used)  
+- [🚧 Challenges Faced](#-challenges-faced)  
+- [🔧 Installation](#-installation)  
+- [🚀 Usage](#-usage)  
+- [🎮 Simulation Options](#-simulation-options)  
+- [📄 License](#-license)
 
 ---
 
